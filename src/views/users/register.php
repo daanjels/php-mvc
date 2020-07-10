@@ -15,6 +15,6 @@
         for="name"><?= $data['confirm_error']; ?></label>
     <input type="password" name="confirm" value="<?= $data['confirm']; ?>">
     <input type="submit" value="Register">
-    <a href="<?= URLROOT; ?>/users/login">or login</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;<a href="<?= URLROOT; ?>/users/login">Login</a>
 </form>
 <?php require APPROOT . '/views/inc/footer.php'; ?>

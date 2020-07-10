@@ -1,6 +1,6 @@
 <nav class="left">
     <ul>
-        <li><a href="<?= URLROOT ?>/">Home</a></li>
+        <li><a href="<?= URLROOT ?>/">MVC</a></li>
         <li><a href="<?= URLROOT ?>/about">About</a></li>
     </ul>
 </nav>
