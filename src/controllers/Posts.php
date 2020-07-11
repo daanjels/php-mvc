@@ -153,15 +153,29 @@ class Posts extends Controller
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-            if ($this->postModel->deletePost($id)) {
-                flash('post_message', 'Post removed');
-                redirect('posts');
+            // let's add a confirmation option
+            if (isset($_POST['delete'])) {
+                if ($this->postModel->deletePost($id)) {
+                    flash('post_message', 'Post removed');
+                    redirect('posts');
+                } else {
+                    die('something went wrong');
+                }
             } else {
-                die('Something went wrong)');
+                $record = $this->postModel->getPostById($id);
+                $user = $this->userModel->getUserById($record->user_id);
+                $data = [
+                    'title' => $record->title,
+                    'description' => $record->body,
+                    'post' => $record,
+                    'user' => $user, // pass on the user
+                    'delete' => $_POST,
+                ];
+                $this->view('posts/delete', $data);    
             }
+
         } else {
             redirect('posts');
         }
     }
-
 }

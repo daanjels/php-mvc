@@ -18,6 +18,7 @@ class Pages extends Controller
             'description' => '<p>This is a very basic PHP framework using the MVC pattern. '
                 . 'It allows a user to register, login and logout. '
                 . 'It uses a database to store the users and their hashed passwords.</p>'
+                . '<p>Registered users can create, read, update and delete posts on this site.</p>'
                 . '<p>More info on the MVC pattern is available on the <a href="'.URLROOT.'/about">about</a> page.</p>',
             // 'example' => $example,
         ];
